@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'org.imt.nordeurope'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	runtimeOnly 'org.postgresql:postgresql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-core', version: '9.0.56'
+	// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+	implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.56'
+	// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+	compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+	// https://mvnrepository.com/artifact/javax.servlet/jstl
+	implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+
+}
+
+test {
+	useJUnitPlatform()
+}
