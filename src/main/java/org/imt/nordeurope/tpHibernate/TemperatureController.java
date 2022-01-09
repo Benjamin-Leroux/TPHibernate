@@ -21,7 +21,6 @@ public class TemperatureController {
     private CountryRepository countryRepository;
     @Autowired
     private RegionRepository regionRepository;
-
     @Autowired
     private EntityManager entityManager;
 
@@ -93,7 +92,7 @@ public class TemperatureController {
     }
     @RequestMapping(value = { "/goToEditTemperature" }, method = RequestMethod.GET)
     public String goToEditTemperature(Model model){
-        model.addAttribute("temperatures",tempetureRepository.findAll());
+        model.addAttribute("regions",regionRepository.findAll());
         return "editTemperature";
     }
     @RequestMapping(value = { "/doEditTemperature" }, method = RequestMethod.GET)
@@ -102,7 +101,7 @@ public class TemperatureController {
         Temperature temp = tempetureRepository.findTemperatureByRegion_Name(regionName);
         temp.setValue(Integer.parseInt(temperature));
         tempetureRepository.save(temp);
-        model.addAttribute("temperatures",tempetureRepository.findAll());
+        model.addAttribute("regions",regionRepository.findAll());
         return "editTemperature";
     }
     @RequestMapping(value = { "/displayCountryWithRegionTempAbove12" }, method = RequestMethod.GET)
