@@ -15,33 +15,21 @@
 
 <h1>Editer une temperature</h1>
 
-    <c:forEach items="${temperatures}" var="temperature">
     <div class="table">
+        <c:forEach items="${temperatures}" var="temperature">
         <form class="tr" method="get" action="doEditTemperature">
-            <span class="td">
+            <div class="td">
                     ${temperature.region.name}
                 <input type="hidden" name="regionName" value="${temperature.region.name}"/>
-            </span>
-            <span class="td"><input type="text" name="temperature" value="${temperature.value}"/></span>
-            <span class="td"><button type="submit">Valider</button> </span>
+            </div>
+            <div class="td"><input type="text" name="temperature" value="${temperature.value}"/></div>
+            <div class="td"><button type="submit">Valider</button> </div>
         </form>
-        <div>
-    </c:forEach>
+        </c:forEach>
+    </div>
+
 
 </body>
 </html>
 
-<style>
-    DIV.table
-    {
-        display:table;
-    }
-    FORM.tr, DIV.tr
-    {
-        display:table-row;
-    }
-    SPAN.td
-    {
-        display:table-cell;
-    }
-</style>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
