@@ -67,8 +67,19 @@ public class Country {
 
     public void addRegion(Region region){
         regions.add(region);
+        computeAverageTemperature();
+
     }
     public void removeRegion(Region region){
         regions.remove(region);
+        computeAverageTemperature();
+    }
+
+    public void computeAverageTemperature(){
+        this.averageTemperature = 0;
+        for (Region region:regions) {
+            this.averageTemperature += region.getTemperature().getTemperatureValue();
+        }
+        this.averageTemperature = averageTemperature/regions.size();
     }
 }

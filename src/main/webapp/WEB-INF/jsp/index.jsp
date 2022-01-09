@@ -21,7 +21,7 @@
             <li><a href="createRegion">Créer une région</a></li>
             <li><a href="goToDeleteRegion">Supprimer une région</a></li>
             <li><a href="goToEditTemperature">Modifier une température</a></li>
-            <li><a href="">Affichage des pays dont une des régions à plus de 12 degrés</a></li>
+            <li><a href="displayCountryWithRegionTempAbove12">Affichage des pays dont une des régions à plus de 12 degrés</a></li>
         </ul>
     </div>
 </body>

@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -110,9 +111,9 @@ public class TemperatureController {
     @RequestMapping(value = { "/displayCountryWithRegionTempAbove12" }, method = RequestMethod.GET)
     public String displayCountryWithRegionTempAbove12(Model model){
 
-        model.addAttribute("countries",tempetureRepository.findAll());
-        return "editTemperature";
+        List<Country> countries = new ArrayList<>();
+        model.addAttribute("countries",countryRepository.findAllById(countryRepository.findCountriesWhereRegionsTemperatureGreaterThan12()));
+        return "coutriesList";
     }
-
 
 }
