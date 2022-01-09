@@ -5,6 +5,7 @@
   Time: 21:38
   To change this template use File | Settings | File Templates.
 --%>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -20,6 +21,6 @@
         <li>${region.name}</li>
     </c:forEach>
 </ul>
-
+<a class="button" href="index"> Retourner à l'index</a>
 </body>
 </html>

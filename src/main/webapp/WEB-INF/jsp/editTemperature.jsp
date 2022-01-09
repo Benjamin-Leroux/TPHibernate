@@ -28,7 +28,7 @@
         </c:forEach>
     </div>
 
-
+<a class="button" href="index"> Retourner à l'index</a>
 </body>
 </html>
 

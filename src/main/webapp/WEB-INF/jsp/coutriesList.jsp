@@ -7,6 +7,8 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style><%@include file="/WEB-INF/css/style.css"%></style>
+
 <html>
 <head>
     <title>Liste des pays</title>
@@ -29,5 +31,6 @@
         </c:forEach>
     </table>
 </div>
+<a class="button" href="index"> Retourner à l'index</a>
 </body>
 </html>
