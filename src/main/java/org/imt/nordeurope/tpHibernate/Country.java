@@ -64,7 +64,11 @@ public class Country {
     public List<Region> getRegions() {
         return regions;
     }
-    public void AddRegion(Region region){
+
+    public void addRegion(Region region){
         regions.add(region);
+    }
+    public void removeRegion(Region region){
+        regions.remove(region);
     }
 }

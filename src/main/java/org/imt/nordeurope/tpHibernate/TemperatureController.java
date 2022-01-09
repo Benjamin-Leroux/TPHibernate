@@ -1,12 +1,8 @@
 package org.imt.nordeurope.tpHibernate;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityManager;
@@ -70,7 +66,7 @@ public class TemperatureController {
         Country country = countryRepository.findByName(countryName);
         region.setCountry(country);
         regionRepository.save(region);
-        country.AddRegion(region);
+        country.addRegion(region);
         countryRepository.save(country);
         return"index";
     }
@@ -89,7 +85,11 @@ public class TemperatureController {
     }
     @RequestMapping(value = { "/doDeleteRegion" }, method = RequestMethod.GET)
     public String goToDeleteRegion(Model model ,@RequestParam(name="regionName")String regionName){
-        regionRepository.delete(regionRepository.findByName(regionName));
+        Region region = regionRepository.findByName(regionName);
+        Country country = region.getCountry();
+        country.removeRegion(region);
+        countryRepository.save(country);
+        regionRepository.delete(region);
         model.addAttribute("regions",regionRepository.findAll());
         return "deleteRegion";
     }
