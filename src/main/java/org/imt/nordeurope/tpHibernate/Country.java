@@ -64,4 +64,7 @@ public class Country {
     public List<Region> getRegions() {
         return regions;
     }
+    public void AddRegion(Region region){
+        regions.add(region);
+    }
 }

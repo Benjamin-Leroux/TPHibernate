@@ -67,8 +67,11 @@ public class TemperatureController {
         temp.setRegion(region);
         region.setTemperature(temp);
         region.setName(name);
-        region.setCountry(countryRepository.findByName(countryName));
+        Country country = countryRepository.findByName(countryName);
+        region.setCountry(country);
         regionRepository.save(region);
+        country.AddRegion(region);
+        countryRepository.save(country);
         return"index";
     }
 
